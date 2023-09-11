@@ -23,7 +23,7 @@ const Upload = () => {
 
   const handleVerifyCollection = async () => {
     try {
-      const response = await axios.get(`https://flasheasy.azurewebsites.net/api/verify-collection/${collectionName}`);
+      const response = await axios.get(`http://localhost:5000/api/verify-collection/${collectionName}`);
       const { exists } = response.data;
       setCollectionExists(exists);
       if (exists) {
@@ -55,7 +55,7 @@ const Upload = () => {
 
           const finalCollectionName = collectionName || 'open';
 
-          axios.post(`https://flasheasy.azurewebsites.net/api/store/${finalCollectionName}`, rowObject)
+          axios.post(`http://localhost:5000/api/store/${finalCollectionName}`, rowObject)
             .then((response) => {
               console.log('Data sent to the server:', response.data);
             })

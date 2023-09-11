@@ -24,7 +24,7 @@ const Cards: React.FC<CardsProps> = ({ collectionName }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://flasheasy.azurewebsites.net/api/fetch/${collectionName}`);
+        const response = await axios.get(`http://localhost:5000/api/fetch/${collectionName}`);
         setData(response.data);
       } catch (error) {
         console.error(error);
