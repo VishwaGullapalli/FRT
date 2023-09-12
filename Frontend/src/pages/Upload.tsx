@@ -23,7 +23,7 @@ const Upload = () => {
 
   const handleVerifyCollection = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/verify-collection/${collectionName}`);
+      const response = await axios.get(`http://4.224.47.39:5000/api/verify-collection/${collectionName}`);
       const { exists } = response.data;
       setCollectionExists(exists);
       if (exists) {
@@ -55,7 +55,7 @@ const Upload = () => {
 
           const finalCollectionName = collectionName || 'open';
 
-          axios.post(`http://localhost:5000/api/store/${finalCollectionName}`, rowObject)
+          axios.post(`http://4.224.47.39:5000/api/store/${finalCollectionName}`, rowObject)
             .then((response) => {
               console.log('Data sent to the server:', response.data);
             })
@@ -86,6 +86,7 @@ const Upload = () => {
             For now our app supports the following DataModel only.
             We will bring you an update very soon.
           </p>
+	  <p className="mb-4 text-lg font-light text-gray-500 dark:text-gray-40">The default open source collection is open. Click Verify Collection without any collection name to contribute to the collection of open source flashcards.</p>
           <img src='Example.png' alt='example' />
           <br />
           <div className="col-md-3">
